@@ -1,0 +1,11 @@
+<!-- When submit the form, the view rendered will be the index view of our articles resource -->
+  <%= form_tag(:action => "home") do %>
+    <div class="header">
+      <strong> Welcome <%= User.find(session[:user_id]).username %> to NextGate Music </strong>
+      <%= text_field_tag :search, params[:search], placeholder: "Search Singers or Albums" %>
+      <!-- In order to have the "search" icon int the button, we need to use plain HTML instead 
+           of using a Rails form helper -->
+      <button class="btn" type="submit"> Search</button>
+      <%= link_to "Logout", controller: "sessions/logout" %> 
+    </div>
+  <% end %>

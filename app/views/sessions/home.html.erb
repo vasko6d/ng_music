@@ -1,2 +1,46 @@
-<h1>Sessions#home,</h1>
-<p>Find me in app/views/sessions/home,.html.erb</p>
+<%= render partial: "search" %>
+<p>NextGate Music is a sleek front-end applicatoin to search for artists and singers. Use the search bar to begin.</p>
+
+<div class="singers_table">
+	<h1>
+	  Listing Singers
+	</h1>
+	<table>
+	  <tr>
+	    <th>Name</th>
+	    <th>DOB</th>
+	    <th>Sex</th>
+	  </tr>
+	 
+	  <% @singer.each do |singer| %>
+	    <tr>
+	      <td><%= singer.name %></td>
+	      <td><%= singer.dob %></td>
+	      <td><%= singer.sex %></td>
+	    </tr>
+	  <% end %>
+	</table>
+</div>
+
+<div class="albums_table">
+	<h1>
+	  Listing Albums
+	</h1>
+	<table>
+	  <tr>
+	    <th>Album Name</th>
+	    <th>Singer</th>
+	    <th>Release Year</th>
+	    <th>Record Company</th>
+	  </tr>
+	 
+	  <% @album.each do |album| %>
+	    <tr>
+	      <td><%= album.album_name %></td>
+	      <td><%= Singer.find(album.ng_singers_id).name %></td>
+	      <td><%= album.release_year %></td>
+	      <td><%= album.record_company %></td>
+	    </tr>
+	  <% end %>
+	</table>
+</div>
