@@ -28,10 +28,4 @@ class SessionsController < ApplicationController
   	@singer = Singer.search(params[:search])
   	@album = Album.search(params[:search])
   end
-
-  def profile
-  end
-
-  def setting
-  end
 end
