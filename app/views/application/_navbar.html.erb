@@ -2,7 +2,7 @@
   <div class="container-fluid">
     <!-- Brand and toggle get grouped for better mobile display -->
     <div class="navbar-header">
-      <a class="navbar-brand" href="#"><img src="http://www.nextgate.com/wp-content/uploads/2015/05/nextgate-logo.png" height="20"></a>
+      <a class="navbar-brand" href="http://www.nextgate.com"><img src="http://www.nextgate.com/wp-content/uploads/2015/05/nextgate-logo.png" height="20"></a>
       <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
         <span class="sr-only">Toggle navigation</span>
         <span class="icon-bar"></span>
@@ -21,11 +21,12 @@
         <button type="submit" class="btn btn-default">Submit</button>
       <% end %>
       <ul class="nav navbar-nav navbar-right">
-        <li><%= link_to "Logout", controller: "sessions/logout" %></li>
+        <li><%= link_to "Home", controller: "home" %></li>
+        <li><%= link_to "Logout", controller: "logout" %></li>
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"> Add Content <span class="caret"></span></a>
           <ul class="dropdown-menu">
-            <li><a href="#">Add Singer</a></li>
+            <li><%= link_to "Add Singer", new_singer_path %></li>
             <li><a href="#">Add Album</a></li>
             <li role="separator" class="divider"></li>
             <li><a href="#">Add User</a></li>

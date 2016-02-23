@@ -2,7 +2,6 @@ class SessionsController < ApplicationController
 
   before_action :authenticate_user, :only => [:home, :profile, :setting]
   before_action :save_login_state, :only => [:login, :login_attempt]
-  before_action :disable_nav, :only => [:login, :login_attempt]
 
   def login
   end
@@ -16,6 +15,7 @@ class SessionsController < ApplicationController
       flash[:notice] = "Invalid Username or Password"
       render "login"	
     end
+    flash.discard
   end
 
   def logout

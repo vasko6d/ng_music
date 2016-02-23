@@ -1,18 +1,18 @@
-<p>NextGate Music is a sleek front-end applicatoin to search for artists and singers. Use the search bar to begin.</p>
+<p>NextGate Music is a sleek front-end application to search for artists and singers. Use the search bar to begin.</p>
 
 <div class="singers_table">
 	<h1>
 	  Listing Singers
 	</h1>
-	<table>
-	  <tr>
+	<table class="table table-sm">
+	  <tr class="row">
 	    <th>Name</th>
 	    <th>DOB</th>
 	    <th>Sex</th>
 	  </tr>
 	 
 	  <% @singer.each do |singer| %>
-	    <tr>
+	    <tr class="row">
 	      <td><%= singer.name %></td>
 	      <td><%= singer.dob %></td>
 	      <td><%= singer.sex %></td>
@@ -25,8 +25,8 @@
 	<h1>
 	  Listing Albums
 	</h1>
-	<table>
-	  <tr>
+	<table  class="table table-sm">
+	  <tr class="row">
 	    <th>Album Name</th>
 	    <th>Singer</th>
 	    <th>Release Year</th>
@@ -34,7 +34,7 @@
 	  </tr>
 	 
 	  <% @album.each do |album| %>
-	    <tr>
+	    <tr class="row"> 
 	      <td><%= album.album_name %></td>
 	      <td><%= Singer.find(album.ng_singers_id).name %></td>
 	      <td><%= album.release_year %></td>

@@ -1,0 +1,42 @@
+<h1> New Singer </h1>
+
+<%= form_for @singer do |f| %>
+ 
+  <% if @singer.errors.any? %>
+    <div id="error_explanation">
+      <h2>
+        <%= pluralize(@singer.errors.count, "error") %> prohibited
+        this article from being saved:
+      </h2>
+      <ul>
+        <% @singer.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+ 
+  <p>
+    <%= f.label :name %><br>
+    <%= f.text_field :name %>
+  </p>
+ 
+  <p>
+    <%= f.label :sex %><br>
+    <%= f.label :sex, "Male", :value => "true"  %>
+    <%= f.radio_button(:sex,"MALE") %>
+    <%= f.label :sex, "Female" %>
+    <%= f.radio_button(:sex,"FEMALE") %>
+  </p>
+
+  <p>
+    <%= f.label "Date of birth" %><br>
+    <%= f.date_select(:dob, :order => [:month, :day, :year], :start_year => 1900) %>
+  </p>
+ 
+  <p>
+    <%= f.submit %>
+  </p>
+ 
+<% end %>
+

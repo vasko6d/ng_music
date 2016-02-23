@@ -19,12 +19,9 @@ class ApplicationController < ActionController::Base
 	    redirect_to({controller: 'sessions', action: 'home'})
 	    return false
 	  else
+	  	@disable_nav = true
 	    return true
 	  end
 	end
 
-	#a function to disable the functions of the navbar unless logged in
-	def disable_nav
-	  @disable_nav = true
-	end
 end
