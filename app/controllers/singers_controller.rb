@@ -7,15 +7,16 @@ class SingersController < ApplicationController
   def create
   	#render plain: singer_params.inspect
   	@singer = Singer.new(singer_params)
-	params = nil
+	  params = nil
 
   	if @singer.save
-  		flash[:success] = "Your new singer was added succesfully"
-		redirect_to controller: 'sessions', action: 'home'
-	else
-		flash[:notice] = "Invalid Input"
-		redirect_to action: 'new'
-	end
+      $query = @singer.name
+  		flash[:success] = "Your new singer was added succesfully. Showing search results for a query of '#{$query}'"
+		  redirect_to controller: 'sessions', action: 'home'
+	  else
+		  flash[:notice] = "Invalid Input"
+		  redirect_to action: 'new'
+	  end
   end
 
   private

@@ -24,7 +24,14 @@ class SessionsController < ApplicationController
   end
 
   def home
-  	@singer = Singer.search(params[:search])
-  	@album = Album.search(params[:search])
+    if !$query
+      $query = params[:search]
+    end
+    @singer = Singer.search($query)
+  	@album = Album.search($query)
+    $query = nil
+    if request.fullpath != "/home" && !@singer.any? && !@album.any?
+      flash.now[:notice] = "Sorry! No results matched that query."
+    end
   end
 end
