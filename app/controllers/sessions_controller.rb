@@ -2,6 +2,7 @@ class SessionsController < ApplicationController
 
   before_action :authenticate_user, :only => [:home, :profile, :setting]
   before_action :save_login_state, :only => [:login, :login_attempt]
+  before_action :disable_nav, :only => [:login, :login_attempt]
 
   def login
   end
@@ -13,7 +14,6 @@ class SessionsController < ApplicationController
       redirect_to(:action => 'home')
     else
       flash[:notice] = "Invalid Username or Password"
-      flash[:color]= "invalid"
       render "login"	
     end
   end

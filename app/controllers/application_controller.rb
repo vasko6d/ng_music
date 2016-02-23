@@ -22,4 +22,9 @@ class ApplicationController < ActionController::Base
 	    return true
 	  end
 	end
+
+	#a function to disable the functions of the navbar unless logged in
+	def disable_nav
+	  @disable_nav = true
+	end
 end
