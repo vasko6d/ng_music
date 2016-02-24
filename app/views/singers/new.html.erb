@@ -3,7 +3,7 @@
 <%= form_for @singer do |f| %>
  
   <% if @singer.errors.any?
-      flash.now[:error] = pluralize(@singer.errors.count, "error") + " prohibited" + " this article from being saved: <ul>"
+      flash.now[:error] = pluralize(@singer.errors.count, "error") + " prohibited" + " this singer from being saved: <ul>"
         @singer.errors.full_messages.each do |msg| 
           flash.now[:error] = flash.now[:error] + "<li>" + msg + "</li>"
         end 
