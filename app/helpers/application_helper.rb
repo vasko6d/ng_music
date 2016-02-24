@@ -4,15 +4,12 @@ module ApplicationHelper
   end
 
   def flash_messages(opts = {})
+    #reference https://gist.github.com/suryart/7418454. Jun28, 2014 post by suryart
+    full_flash = "" 
     flash.each do |msg_type, message|
-      concat(content_tag(:div, message, class: "alert #{bootstrap_class_for(msg_type)} alert-dismissible", role: 'alert') do
-        concat(content_tag(:button, class: 'close', data: { dismiss: 'alert' }) do
-          concat content_tag(:span, '&times;'.html_safe, 'aria-hidden' => true)
-          concat content_tag(:span, 'Close', class: 'sr-only')
-        end)
-        concat message
-      end)
+      piece = "<div class='alert " + bootstrap_class_for(msg_type) + " alert-dismissible' role='alert'> <button class='close' data-dismiss='alert'><span aria-hidden='true'>&times;</span><span class='sr-only'>Close</span></button>" + message + "</div>"
+      full_flash = full_flash + piece
     end
-    nil
+    return full_flash.html_safe
   end
 end

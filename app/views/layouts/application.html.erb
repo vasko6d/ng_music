@@ -8,11 +8,7 @@
   <%= favicon_link_tag 'favicon.ico' %>
 </head>
 <body>
-    <% if @disable_nav %>
-      <%= render partial: "dumb_navbar" %>
-    <% else %>
-      <%= render partial: "navbar" %>
-    <% end %>
+    <%= render partial: "navbar" %>
     
     <div class="container">
       <%= flash_messages %>

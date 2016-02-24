@@ -24,4 +24,8 @@ class ApplicationController < ActionController::Base
 	  end
 	end
 
+	def disable_search_bar
+		@disable_search = true
+	end
+
 end

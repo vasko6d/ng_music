@@ -1,4 +1,6 @@
 class SingersController < ApplicationController
+  before_action :authenticate_user, :only => [:new, :create]
+  before_action :disable_search_bar, :only => [:new, :create]
 
   def new
   	@singer = Singer.new
@@ -14,8 +16,7 @@ class SingersController < ApplicationController
   		flash[:success] = "Your new singer was added succesfully. Showing search results for a query of '#{$query}'"
 		  redirect_to controller: 'sessions', action: 'home'
 	  else
-		  flash[:notice] = "Invalid Input"
-		  redirect_to action: 'new'
+		  render'new'
 	  end
   end
 
