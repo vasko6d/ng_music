@@ -5,7 +5,7 @@ class Album < ActiveRecord::Base
 	has_one :singer, foreign_key: 'ng_singers_id'
 	accepts_nested_attributes_for :singer
 
-	validates :album_name, presence: true
+	validates :album_name, presence: true, uniqueness: {case_sensitive: false}
 	validates :ng_singers_id, presence: true
 	validates :release_year, presence: true, length: { is: 4 }
     validates_numericality_of :release_year, on: :create

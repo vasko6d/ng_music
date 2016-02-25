@@ -15,7 +15,7 @@ class AlbumsController < ApplicationController
 	  	@album = Album.new(:ng_singers_id => singer_id)
 	  	if @album.update_attributes(:album_name => album_params[:album_name], :release_year => album_params[:release_year],:record_company => album_params[:record_company])
            $query = @album.album_name
-	  	   flash.now[:success] = "Your new album was added succesfully. Showing search results for a query of '#{$query}'"
+	  	   flash[:success] = "Your new album was added succesfully. Showing search results for a query of '#{$query}'"
 		   redirect_to controller: 'sessions', action: 'home'
 		else
 		   @album.singer = Singer.new(:name => singer_name)
@@ -26,35 +26,11 @@ class AlbumsController < ApplicationController
 		flash.now[:error] = "Specified singer, #{singer_name} not in database. Please add the singer seperately before their albums"
 		render 'new'
 	end
-
-	#  	@album = Album.new(params[:album].merge(:ng_singers_id => singer_id))
-
-#  	@album = Album.new(album_params)
-#	  params = nil
-#
- # 	if @album.save
- #     $query = @album.name
- # 		flash[:success] = "Your new album was added succesfully. Showing search results for a query of '#{$query}'"
-#		  redirect_to controller: 'sessions', action: 'home'
-#	  else
-#		  flash[:notice] = "Invalid Input"
-#		  render 'new'
-#	  end
   end
 
   private
   def album_params
   	params.require(:album).permit(:album_name,:ng_singers_id, :release_year, :record_company, singer_attributes: [:name])
-  	#find_singer = Singer.where("name = ?",params[:album].singer_name)
-  	#if find_singer.any?
-	#  	singer_id = find_singer.take.ng_singers_id
-	#  	@album = Album.new(params[:album].merge(:ng_singers_id => singer_id))
-	#    params.require(:album).permit(:album_name,:ng_singers_id, :release_year, :record_company)
-	#else
-#		flash[:notice] = "Referenced singer #{params[:album].singer_name}, does not exist in the database."
-#		               + " Please add singer before adding their album"
-#		redirect_to action: 'new'
-#	end
   end
 
 end
