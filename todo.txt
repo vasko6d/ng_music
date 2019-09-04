@@ -1,8 +1,0 @@
-TODO
-1) Give flash warning if trying to create duplicate not ANGRY RAILS
-2) SORT RESULTS!!! DOABLE!
-
-FUTURE
-1) Cryptographically hashed password: Wont have time but bhash gem with salt looks awesome. Would have to run a migration forst too
-2) Add admin bool column to user table so i can allow admins right to add more users
-3) Changing Skin seems hard

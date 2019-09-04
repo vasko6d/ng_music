@@ -10,6 +10,8 @@ A simple rails application to manage and search a local music information databa
 - Simple Searching Capabilities
 - Display Results
 
+NOTE: This project is no longer maintained except if GitHub sends me any more vulnerability messages.
+
 ## Project Requirements
 
 - Ruby
@@ -63,3 +65,11 @@ rake db:schema:load
 ```
 rails server
 ```
+
+## To Do (archived)
+
+- Give flash warning if trying to create duplicate not ANGRY RAILS
+- SORT RESULTS!!! DOABLE!
+- Cryptographically hashed password: Wont have time but bhash gem with salt looks awesome. Would have to run a migration forst too
+- Add admin bool column to user table so i can allow admins right to add more users
+- Changing Skin seems hard
