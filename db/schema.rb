@@ -14,10 +14,10 @@
 ActiveRecord::Schema.define(version: 0) do
 
   create_table "ng_albums", primary_key: "ng_albums_id", force: :cascade do |t|
-    t.integer "ng_singers_id",  limit: 4
-    t.string  "album_name",     limit: 100
-    t.string  "release_year",   limit: 4
-    t.string  "record_company", limit: 200
+    t.bigint "ng_singers_id",  limit: 4
+    t.string "album_name",     limit: 100
+    t.string "release_year",   limit: 4
+    t.string "record_company", limit: 200
   end
 
   add_index "ng_albums", ["album_name", "release_year", "record_company"], name: "album_name", unique: true, using: :btree
