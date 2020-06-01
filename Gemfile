@@ -1,6 +1,6 @@
 source 'http://rubygems.org'
 
-gem 'rails', '6.0.0' 
+gem 'rails', '6.0.3.1' 
 gem 'mysql2', '~> 0.5.2' # Use mysql as the database for Active Record
 gem 'turbolinks' # Turbolinks makes following links in your web application faster. 
 
