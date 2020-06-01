@@ -26,7 +26,7 @@ Normal Ruby on Rail installation:
 
 ## Other Set Up
 
-- Once everythign, Ruby, Rails and mySql are correctly installed...
+- Once everything: Ruby, Rails and mySql are correctly installed...
 
 ```
 bundle install
@@ -57,7 +57,7 @@ rake db:schema:load
 
 ## Add test data in if desired using the provided POJO.
 
-- **IMPORTANT**: If your mysql has the "--secure-file-priv" option you many need to move the files or disable the option: see https://superuser.com/questions/1088512/how-to-disable-secure-file-priv-mysql-ubuntu.
+**IMPORTANT**: If your mysql has the "--secure-file-priv" option you many need to move the files or disable the option: see https://superuser.com/questions/1088512/how-to-disable-secure-file-priv-mysql-ubuntu.
 
 ```
 sudo echo "secure_file_priv=\"\"" | sudo tee -a /etc/mysql/mysql.conf.d/mysqld.cnf
